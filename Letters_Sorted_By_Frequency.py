@@ -14,12 +14,18 @@ for word in word_list_5_letters:
 #print(letter_frequency_dict)
 print(letter_frequency_dict, '\n')
 
-# Create list of tuples of the form (letter, frequency), and sort by decreasing frequency.
-letter_frequencies = list(letter_frequency_dict.items())
-letter_frequencies = sorted(letter_frequencies, key=lambda x: x[1])[::-1]
-print(letter_frequencies, '\n')
+# Assign each word a word score based on letter frequencies.
+word_score_list = []
+for word in word_list_5_letters:
+    word_score = 0
+    for letter in word:
+        word_score += letter_frequency_dict[letter]
+    word_score_list.append((word, word_score))
 
-# Create list of just letters, sorted by decreasing frequency.
-letters_sorted_by_frequency = [pair[0] for pair in letter_frequencies]
-print(letters_sorted_by_frequency)
+# Sort the words by decreasing word scores.
+word_score_list = sorted(word_score_list, key=lambda x: x[1])[::-1]
+print(word_score_list)
 
+# Extract just the words.
+words_sorted_by_score = [pair[0] for pair in word_score_list]
+print(words_sorted_by_score)
