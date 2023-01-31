@@ -15,20 +15,30 @@ def wordle_display(predicted_word, correct_word):
         if predicted_word[i] == correct_word[i]:
             display[i] = 'green'
 
-    # Identify indices of non-green letters.
-    non_green_indices = []
-    for index in range(5):
-        if display[index] == '_'
-            non_green_indices.append(index)
+    # Identify which letters from the correct word were not turned green.
+    correct_letters_remaining = []
+    for i in range(5):
+        if display[i] == 'grey':
+            correct_letters_remaining.append(correct_word[i])
 
-    # Fill in yellow Wordle letters
-    for index in non_green_indices:
-
+    # Fill in yellow Wordle letters.
+    for i in range(5):
+        if (display[i] == 'grey') and (predicted_word[i] in correct_letters_remaining):
+            display[i] = 'yellow'
+            correct_letters_remaining.remove(predicted_word[i])
 
 
     return display
 
-print(wordle_display('shape', 'sheep'))
+print(wordle_display('green', 'grape'))
+print(wordle_display('stale', 'steal'))
+print(wordle_display('boxes', 'apple'))
+print(wordle_display('stole', 'style'))
+print(wordle_display('zooey', 'oozey'))
+print(wordle_display('TITIT', 'IITTT'))
+
+
+
 
 
 
