@@ -27,16 +27,16 @@ def wordle_display(predicted_word, correct_word):
             display[i] = 'yellow'
             correct_letters_remaining.remove(predicted_word[i])
 
-
     return display
 
+# Unit tests for wordle_display()
 print(wordle_display('green', 'grape'))
 print(wordle_display('stale', 'steal'))
 print(wordle_display('boxes', 'apple'))
 print(wordle_display('stole', 'style'))
 print(wordle_display('zooey', 'oozey'))
 print(wordle_display('TITIT', 'IITTT'))
-
+print(wordle_display('STEEP', 'TESTS'))
 
 
 
