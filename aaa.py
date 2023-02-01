@@ -38,11 +38,28 @@ print(wordle_display('zooey', 'oozey'))
 print(wordle_display('TITIT', 'IITTT'))
 print(wordle_display('STEEP', 'TESTS'))
 
+def word_list_subsetter(word_list, predicted_word, display):
+
+    if display[0] == 'green':
+        first_letter = predicted_word[0]
+    if display[1] == 'green':
+        second_letter = predicted_word[1]
+    if display[2] == 'green':
+        first_letter = predicted_word[2]
+    if display[3] == 'green':
+        first_letter = predicted_word[3]
+    if display[4] == 'green':
+        first_letter = predicted_word[4]
+
+    first_letter_candidates = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    second_letter_candidates = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    third_letter_candidates = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    fourth_letter_candidates = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    fifth_letter_candidates = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
 
 
-# def word_list_subsetter():
 #     """
 #     Based on wordle_display
 #     """
