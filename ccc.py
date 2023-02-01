@@ -44,14 +44,16 @@ for index_1 in blank_indices:
 import pprint
 pprint.pprint(dict)
 
-# For each non-green predicted letter, if yellow_count = 1 then the number of occurrences of that letter in the blanks is grey_count.
-# Remove all words from word_list which do not satisfy this property.
+# For each non-green predicted letter, if grey_count >=1 then the number of occurrences of that letter in the blanks is yellow_count.
+# For each non-green predicted letter, if grey_count = 0 then the number of occurrences of that letter is >= yellow_count.
+# Remove all words from word_list which do not satisfy the appropriate property.
 for word in word_list:
+    letters_at_blank_locations = np.array([word[i] for i in blank_indices])
     for letter in dict:
-        if dict[letter]['yellow_count'] == 1:
+        if (dict[letter]['grey_count'] >= 1) and (letters_at_blank_locations[letters_at_blank_locations==letter].sum() != dict[letter]['yellow_count']):
+            word_list.remove(word)
+        if (dict[letter]['grey_count'] == 0) and (letters_at_blank_locations[letters_at_blank_locations==letter].sum() < dict[letter]['yellow_count']):
+            word_list.remove(word)
 
 
 
-
-# For each non-green predicted letter, if yellow_count = 0 then the number of occurrences of that letter is >= grey_count.
-# Remove all words from word_list which do not satisfy this property.
